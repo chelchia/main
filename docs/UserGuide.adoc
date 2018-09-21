@@ -571,7 +571,7 @@ e.g.`select 2`
 * createJio
 * joinJio
 * deleteJio
-* findJio
+* listJio
 
 *FRIEND COMMANDS*
 * addFriend
@@ -597,6 +597,7 @@ e.g.`select 2`
 * findTime
 * addCalendar
 * addNUSMODS
+* findJio
 
 *ACCOUNTING COMMANDS*
 * addDebt

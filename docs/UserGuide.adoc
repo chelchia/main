@@ -559,3 +559,52 @@ e.g.`select 2`
 * *History* : `history`
 * *Undo* : `undo`
 * *Redo* : `redo`
+
+*RESTAURANT COMMANDS*
+* writeReview
+* listVisitedRestaurants
+* addVisitedRestaurants
+* addFavourite
+* listFavourites
+
+*JIO COMMANDS*
+* createJio
+* joinJio
+* deleteJio
+* findJio
+
+*FRIEND COMMANDS*
+* addFriend
+* acceptFriend
+* deleteFriendRequest
+* deleteFriend
+* findMutualFriends
+* listFriends
+* listFriendRequests
+
+*GROUP COMMANDS*
+* addGroup
+* acceptGroup
+* deleteGroupRequest
+* deleteGroup
+* listGroups
+* listGroupRequests
+
+*TIMETABLE COMMANDS*
+* blockTime
+* freeTime
+* listTime
+* findTime
+* addCalendar
+* addNUSMODS
+
+*ACCOUNTING COMMANDS*
+* addDebt
+* clearDebt
+* acceptDebtRequest
+* deleteDebtRequest
+* listDebtHistory
+* listDebtor
+* listCreditor
+* listDebtRequest
+

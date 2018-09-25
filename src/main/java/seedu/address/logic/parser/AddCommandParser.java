@@ -15,8 +15,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.restaurant.Address;
 import seedu.address.model.restaurant.Email;
 import seedu.address.model.restaurant.Name;
-import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.restaurant.Phone;
+import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.tag.Tag;
 
 /**

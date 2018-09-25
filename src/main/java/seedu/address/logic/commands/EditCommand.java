@@ -23,8 +23,8 @@ import seedu.address.model.Model;
 import seedu.address.model.restaurant.Address;
 import seedu.address.model.restaurant.Email;
 import seedu.address.model.restaurant.Name;
-import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.restaurant.Phone;
+import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -92,7 +92,8 @@ public class EditCommand extends Command {
      * Creates and returns a {@code Restaurant} with the details of {@code restaurantToEdit}
      * edited with {@code editRestaurantDescriptor}.
      */
-    private static Restaurant createEditedRestaurant(Restaurant restaurantToEdit, EditRestaurantDescriptor editRestaurantDescriptor) {
+    private static Restaurant createEditedRestaurant(Restaurant restaurantToEdit, 
+                                                     EditRestaurantDescriptor editRestaurantDescriptor) {
         assert restaurantToEdit != null;
 
         Name updatedName = editRestaurantDescriptor.getName().orElse(restaurantToEdit.getName());

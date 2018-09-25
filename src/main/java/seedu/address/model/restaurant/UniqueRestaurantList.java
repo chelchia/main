@@ -13,9 +13,12 @@ import seedu.address.model.restaurant.exceptions.RestaurantNotFoundException;
 
 /**
  * A list of restaurants that enforces uniqueness between its elements and does not allow nulls.
- * A restaurant is considered unique by comparing using {@code Restaurant#isSameRestaurant(Restaurant)}. As such, adding and updating of
- * restaurants uses Restaurant#isSameRestaurant(Restaurant) for equality so as to ensure that the restaurant being added or updated is
- * unique in terms of identity in the UniqueRestaurantList. However, the removal of a restaurant uses Restaurant#equals(Object) so
+ * A restaurant is considered unique by comparing using 
+ * {@code Restaurant#isSameRestaurant(Restaurant)}. As such, adding and updating of
+ * restaurants uses Restaurant#isSameRestaurant(Restaurant) 
+ * for equality so as to ensure that the restaurant being added or updated is
+ * unique in terms of identity in the UniqueRestaurantList. 
+ * However, the removal of a restaurant uses Restaurant#equals(Object) so
  * as to ensure that the restaurant with exactly the same fields will be removed.
  *
  * Supports a minimal set of list operations.
@@ -49,7 +52,8 @@ public class UniqueRestaurantList implements Iterable<Restaurant> {
     /**
      * Replaces the restaurant {@code target} in the list with {@code editedRestaurant}.
      * {@code target} must exist in the list.
-     * The restaurant identity of {@code editedRestaurant} must not be the same as another existing restaurant in the list.
+     * The restaurant identity of {@code editedRestaurant} 
+     * must not be the same as another existing restaurant in the list.
      */
     public void setRestaurant(Restaurant target, Restaurant editedRestaurant) {
         requireAllNonNull(target, editedRestaurant);

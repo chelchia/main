@@ -51,6 +51,8 @@ public class MainApp extends Application {
     protected Config config;
     protected UserPrefs userPrefs;
 
+    // comment to help fix style violations.
+
 
     @Override
     public void init() throws Exception {

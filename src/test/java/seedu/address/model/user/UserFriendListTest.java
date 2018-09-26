@@ -3,10 +3,10 @@ package seedu.address.model.user;
 import org.junit.Assert;
 import org.junit.Test;
 
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.restaurant.Address;
+import seedu.address.model.restaurant.Email;
+import seedu.address.model.restaurant.Name;
+import seedu.address.model.restaurant.Phone;
 
 public class UserFriendListTest {
     @Test

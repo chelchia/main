@@ -65,7 +65,8 @@ public class AddressBookParserTest {
         Restaurant restaurant = new RestaurantBuilder().build();
         EditRestaurantDescriptor descriptor = new EditRestaurantDescriptorBuilder(restaurant).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
-                + INDEX_FIRST_PERSON.getOneBased() + " " + RestaurantUtil.getEditRestaurantDescriptorDetails(descriptor));
+                + INDEX_FIRST_PERSON.getOneBased() + " "
+                + RestaurantUtil.getEditRestaurantDescriptorDetails(descriptor));
         assertEquals(new EditCommand(INDEX_FIRST_PERSON, descriptor), command);
     }
 

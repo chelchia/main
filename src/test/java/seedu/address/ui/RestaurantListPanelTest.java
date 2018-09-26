@@ -56,13 +56,15 @@ public class RestaurantListPanelTest extends GuiUnitTest {
         postNow(JUMP_TO_SECOND_EVENT);
         guiRobot.pauseForHuman();
 
-        RestaurantCardHandle expectedRestaurant = restaurantListPanelHandle.getRestaurantCardHandle(INDEX_SECOND_PERSON.getZeroBased());
+        RestaurantCardHandle expectedRestaurant = restaurantListPanelHandle.getRestaurantCardHandle(
+                INDEX_SECOND_PERSON.getZeroBased());
         RestaurantCardHandle selectedRestaurant = restaurantListPanelHandle.getHandleToSelectedCard();
         assertCardEquals(expectedRestaurant, selectedRestaurant);
     }
 
     /**
-     * Verifies that creating and deleting large number of restaurants in {@code RestaurantListPanel} requires lesser than
+     * Verifies that creating and deleting large number of restaurants in
+     * {@code RestaurantListPanel} requires lesser than
      * {@code CARD_CREATION_AND_DELETION_TIMEOUT} milliseconds to execute.
      */
     @Test
@@ -87,7 +89,8 @@ public class RestaurantListPanelTest extends GuiUnitTest {
     }
 
     /**
-     * Returns a .xml file containing {@code restaurantCount} restaurants. This file will be deleted when the JVM terminates.
+     * Returns a .xml file containing {@code restaurantCount} restaurants.
+     * This file will be deleted when the JVM terminates.
      */
     private Path createXmlFileWithRestaurants(int restaurantCount) throws Exception {
         StringBuilder builder = new StringBuilder();

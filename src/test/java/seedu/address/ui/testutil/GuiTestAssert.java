@@ -39,10 +39,12 @@ public class GuiTestAssert {
     }
 
     /**
-     * Asserts that the list in {@code restaurantListPanelHandle} displays the details of {@code restaurants} correctly and
+     * Asserts that the list in {@code restaurantListPanelHandle} displays the details of
+     * {@code restaurants} correctly and
      * in the correct order.
      */
-    public static void assertListMatching(RestaurantListPanelHandle restaurantListPanelHandle, Restaurant... restaurants) {
+    public static void assertListMatching(
+            RestaurantListPanelHandle restaurantListPanelHandle, Restaurant... restaurants) {
         for (int i = 0; i < restaurants.length; i++) {
             restaurantListPanelHandle.navigateToCard(i);
             assertCardDisplaysRestaurant(restaurants[i], restaurantListPanelHandle.getRestaurantCardHandle(i));
@@ -50,10 +52,12 @@ public class GuiTestAssert {
     }
 
     /**
-     * Asserts that the list in {@code restaurantListPanelHandle} displays the details of {@code restaurants} correctly and
+     * Asserts that the list in {@code restaurantListPanelHandle} displays the details of
+     * {@code restaurants} correctly and
      * in the correct order.
      */
-    public static void assertListMatching(RestaurantListPanelHandle restaurantListPanelHandle, List<Restaurant> restaurants) {
+    public static void assertListMatching(
+            RestaurantListPanelHandle restaurantListPanelHandle, List<Restaurant> restaurants) {
         assertListMatching(restaurantListPanelHandle, restaurants.toArray(new Restaurant[0]));
     }
 

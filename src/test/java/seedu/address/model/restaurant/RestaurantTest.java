@@ -36,7 +36,8 @@ public class RestaurantTest {
         assertFalse(ALICE.isSameRestaurant(null));
 
         // different phone and email -> returns false
-        Restaurant editedAlice = new RestaurantBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).build();
+        Restaurant editedAlice = new RestaurantBuilder(ALICE)
+                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(ALICE.isSameRestaurant(editedAlice));
 
         // different name -> returns false

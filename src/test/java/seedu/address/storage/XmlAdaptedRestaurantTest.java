@@ -48,7 +48,8 @@ public class XmlAdaptedRestaurantTest {
 
     @Test
     public void toModelType_nullName_throwsIllegalValueException() {
-        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
+        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(
+                null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, restaurant::toModelType);
     }
@@ -63,7 +64,8 @@ public class XmlAdaptedRestaurantTest {
 
     @Test
     public void toModelType_nullPhone_throwsIllegalValueException() {
-        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
+        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(
+                VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, restaurant::toModelType);
     }
@@ -78,7 +80,8 @@ public class XmlAdaptedRestaurantTest {
 
     @Test
     public void toModelType_nullEmail_throwsIllegalValueException() {
-        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(VALID_NAME, VALID_PHONE, null, VALID_ADDRESS, VALID_TAGS);
+        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(
+                VALID_NAME, VALID_PHONE, null, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, restaurant::toModelType);
     }
@@ -93,7 +96,8 @@ public class XmlAdaptedRestaurantTest {
 
     @Test
     public void toModelType_nullAddress_throwsIllegalValueException() {
-        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(VALID_NAME, VALID_PHONE, VALID_EMAIL, null, VALID_TAGS);
+        XmlAdaptedRestaurant restaurant = new XmlAdaptedRestaurant(
+                VALID_NAME, VALID_PHONE, VALID_EMAIL, null, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, restaurant::toModelType);
     }

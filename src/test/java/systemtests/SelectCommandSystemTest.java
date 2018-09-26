@@ -54,8 +54,8 @@ public class SelectCommandSystemTest extends AddressBookSystemTest {
 
         /* ------------------------ Perform select operations on the shown filtered list ---------------------------- */
 
-        /* Case: filtered restaurant list, select index within bounds of address book but out of bounds of restaurant list
-         * -> rejected
+        /* Case: filtered restaurant list, select index within bounds of address book but out of bounds of
+        restaurant list -> rejected
          */
         showRestaurantsWithName(KEYWORD_MATCHING_MEIER);
         int invalidIndex = getModel().getAddressBook().getRestaurantList().size();

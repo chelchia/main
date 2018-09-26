@@ -35,8 +35,8 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.model.restaurant.Address;
 import seedu.address.model.restaurant.Email;
 import seedu.address.model.restaurant.Name;
-import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.restaurant.Phone;
+import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.RestaurantBuilder;
 
@@ -68,8 +68,8 @@ public class AddCommandParserTest {
                 + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedRestaurant));
 
         // multiple tags - all accepted
-        Restaurant expectedRestaurantMultipleTags = new RestaurantBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
-                .build();
+        Restaurant expectedRestaurantMultipleTags = new RestaurantBuilder(BOB)
+                .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).build();
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, new AddCommand(expectedRestaurantMultipleTags));
     }

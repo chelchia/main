@@ -41,7 +41,8 @@ public class FindCommandSystemTest extends AddressBookSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find restaurant where restaurant list is not displaying the restaurant we are finding -> 1 restaurant found */
+        /* Case: find restaurant where restaurant list is not displaying the restaurant we are finding
+        -> 1 restaurant found */
         command = FindCommand.COMMAND_WORD + " Carl";
         ModelHelper.setFilteredList(expectedModel, CARL);
         assertCommandSuccess(command, expectedModel);

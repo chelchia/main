@@ -131,7 +131,8 @@ public class DeleteCommandTest {
         expectedModel.deleteRestaurant(restaurantToDelete);
         expectedModel.commitAddressBook();
 
-        // delete -> deletes second restaurant in unfiltered restaurant list / first restaurant in filtered restaurant list
+        // delete -> deletes second restaurant in unfiltered restaurant list or
+        // first restaurant in filtered restaurant list
         deleteCommand.execute(model, commandHistory);
 
         // undo -> reverts addressbook back to previous state and filtered restaurant list to show all restaurants

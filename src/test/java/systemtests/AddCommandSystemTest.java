@@ -40,8 +40,8 @@ import seedu.address.model.Model;
 import seedu.address.model.restaurant.Address;
 import seedu.address.model.restaurant.Email;
 import seedu.address.model.restaurant.Name;
-import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.restaurant.Phone;
+import seedu.address.model.restaurant.Restaurant;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.RestaurantBuilder;
 import seedu.address.testutil.RestaurantUtil;
@@ -54,7 +54,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
 
         /* ------------------------ Perform add operations on the shown unfiltered list ----------------------------- */
 
-        /* Case: add a restaurant without tags to a non-empty address book, command with leading spaces and trailing spaces
+        /* Case: add a restaurant without tags to a non-empty address book, command with
+         * leading spaces and trailing spaces
          * -> added
          */
         Restaurant toAdd = AMY;
@@ -105,13 +106,14 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
         showRestaurantsWithName(KEYWORD_MATCHING_MEIER);
         assertCommandSuccess(IDA);
 
-        /* ------------------------ Perform add operation while a restaurant card is selected --------------------------- */
+        /* ------------ Perform add operation while a restaurant card is selected --------------- */
 
-        /* Case: selects first card in the restaurant list, add a restaurant -> added, card selection remains unchanged */
+        /* Case: selects first card in the restaurant list, add a restaurant
+        -> added, card selection remains unchanged */
         selectRestaurant(Index.fromOneBased(1));
         assertCommandSuccess(CARL);
 
-        /* ----------------------------------- Perform invalid add operations --------------------------------------- */
+        /* ------------------- Perform invalid add operations ----------------------- */
 
         /* Case: add a duplicate restaurant -> rejected */
         command = RestaurantUtil.getAddCommand(HOON);
@@ -142,7 +144,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: missing phone -> rejected */
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
-        assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                AddCommand.MESSAGE_USAGE));
 
         /* Case: missing email -> rejected */
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + ADDRESS_DESC_AMY;
@@ -150,7 +153,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
 
         /* Case: missing address -> rejected */
         command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY;
-        assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                AddCommand.MESSAGE_USAGE));
 
         /* Case: invalid keyword -> rejected */
         command = "adds " + RestaurantUtil.getRestaurantDetails(toAdd);
@@ -197,7 +201,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
     }
 
     /**
-     * Performs the same verification as {@code assertCommandSuccess(Restaurant)}. Executes {@code command}
+     * Performs the same verification as {@code assertCommandSuccess(Restaurant)}.
+     * Executes {@code command}
      * instead.
      * @see AddCommandSystemTest#assertCommandSuccess(Restaurant)
      */
@@ -210,8 +215,8 @@ public class AddCommandSystemTest extends AddressBookSystemTest {
     }
 
     /**
-     * Performs the same verification as {@code assertCommandSuccess(String, Restaurant)} except asserts that
-     * the,<br>
+     * Performs the same verification as
+     * {@code assertCommandSuccess(String, Restaurant)} except asserts that the,<br>
      * 1. Result display box displays {@code expectedResultMessage}.<br>
      * 2. {@code Storage} and {@code RestaurantListPanel} equal to the corresponding components in
      * {@code expectedModel}.<br>

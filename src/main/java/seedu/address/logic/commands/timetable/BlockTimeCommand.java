@@ -7,7 +7,6 @@ import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.restaurant.Restaurant;
 
 /**
  * Blocks out a time on the logged in user's timetable.

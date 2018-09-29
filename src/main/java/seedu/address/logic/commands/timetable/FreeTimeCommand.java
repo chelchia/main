@@ -1,4 +1,4 @@
-package seedu.address.logic.commands.Integer;
+package seedu.address.logic.commands.timetable;
 
 import static java.util.Objects.requireNonNull;
 

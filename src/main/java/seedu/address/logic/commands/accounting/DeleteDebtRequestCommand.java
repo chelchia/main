@@ -1,4 +1,4 @@
-package seedu.address.logic.commands.debt;
+package seedu.address.logic.commands.accounting;
 
 import static java.util.Objects.requireNonNull;
 

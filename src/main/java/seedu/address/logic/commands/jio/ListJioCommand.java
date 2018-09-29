@@ -1,4 +1,4 @@
-package seedu.address.logic.commands.restaurant;
+package seedu.address.logic.commands.jio;
 
 import static java.util.Objects.requireNonNull;
 

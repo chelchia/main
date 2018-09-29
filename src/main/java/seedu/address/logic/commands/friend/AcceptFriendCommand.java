@@ -1,4 +1,4 @@
-package seedu.address.logic.commands.restaurant;
+package seedu.address.logic.commands.friend;
 
 import static java.util.Objects.requireNonNull;
 
@@ -45,7 +45,7 @@ public class AcceptFriendCommand extends Command {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof AddFavouriteCommand // instanceof handles nulls
+                || (other instanceof AcceptFriendCommand // instanceof handles nulls
                 && toAdd.equals(((AcceptFriendCommand) other).toAdd));
     }
 }

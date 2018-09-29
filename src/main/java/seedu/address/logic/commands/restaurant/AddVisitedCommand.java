@@ -1,6 +1,5 @@
 package seedu.address.logic.commands.restaurant;
 
-
 import static java.util.Objects.requireNonNull;
 
 import seedu.address.logic.CommandHistory;

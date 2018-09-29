@@ -607,5 +607,5 @@ e.g.`select 2`
 * listDebtHistory
 * listDebtor
 * listCreditor
-* listDebtRequest
+* listDebtRequests
 

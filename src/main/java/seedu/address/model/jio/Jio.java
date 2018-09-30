@@ -1,40 +1,42 @@
 package seedu.address.model.jio;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.restaurant.Address;
+import seedu.address.model.restaurant.UniqueRestaurantList;
+import seedu.address.model.restaurant.Name;
 import seedu.address.model.user.User;
 
 import java.util.Objects;
 
 public class Jio {
-    private String name;
-    private String time;
-    private String date;
-    private String place;
-    private UniqueUserList<User> people;
+    private Name name;
+    private Time time;
+    private Date date;
+    private Address location;
+//    private UniqueUserList<User> people;
     
-    public Jio(String name, String time, String date, String place, User creator) {
+    public Jio(Name name, Time time, Date date, Address location) {
         this.name = name;
         this.time = time;
         this.date = date;
-        this.place = place;
-        this.people = new UniqueUserList();
-        this.people.add(creator);
+        this.location = location;
+//        this.people = new UniqueUserList();
+//        this.people.add(creator);
     }
     
-    public String getName() { return name;}
+    public String getName() { return name.toString();}
 
-    public String getTime() { return time;}
+    public String getTime() { return time.toString();}
 
-    public String getDate() { return date;}
+    public String getDate() { return date.toString();}
 
-    public String getPlace() { return place;}
+    public String getLocation() { return location.toString();}
 
-    public ObservableList<User> getPeople() { return people.asUnmodifiableObservableList();}
-    
-    public void addUsers(User newUser) {
-        this.people.add(newUser);
-    }
+//    public ObservableList<User> getPeople() { return people.asUnmodifiableObservableList();}
+//    
+//    public void addUsers(User newUser) {
+//        this.people.add(newUser);
+//    }
 
     @Override
     public boolean equals(Object other) {
@@ -54,7 +56,7 @@ public class Jio {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, time, date, place);
+        return Objects.hash(name, time, date, location);
     }
 
     @Override
@@ -65,10 +67,10 @@ public class Jio {
                 .append(getTime())
                 .append(" Date: ")
                 .append(getDate())
-                .append(" Place: ")
-                .append(getPlace())
-                .append(" People: ");
-        this.getPeople().forEach(x -> builder.append(x.getName()));
+                .append(" Location: ")
+                .append(getLocation());
+//                .append(" People: ");
+//        this.getPeople().forEach(x -> builder.append(x.getName()));
         return builder.toString();
     }
 

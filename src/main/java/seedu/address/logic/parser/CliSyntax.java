@@ -5,11 +5,14 @@ package seedu.address.logic.parser;
  */
 public class CliSyntax {
 
-    /* Prefix definitions */
+    /* Original Prefix definitions */
     public static final Prefix PREFIX_NAME = new Prefix("n/");
     public static final Prefix PREFIX_PHONE = new Prefix("p/");
     public static final Prefix PREFIX_EMAIL = new Prefix("e/");
     public static final Prefix PREFIX_ADDRESS = new Prefix("a/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
 
+    /* Added by Chelsea, for Jio*/
+    public static final Prefix PREFIX_TIME = new Prefix("t/");
+    public static final Prefix PREFIX_DATE = new Prefix("d/");
 }

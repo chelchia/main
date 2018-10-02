@@ -5,16 +5,15 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.restaurant.Restaurant;
-import seedu.address.model.restaurant.UniqueRestaurantList;
+import seedu.address.model.jio.UniqueList;
 
 /**
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSameRestaurant comparison)
  */
-public class AddressBook implements ReadOnlyAddressBook {
+public class AddressBook<E> implements ReadOnlyAddressBook<E> {
 
-    private final UniqueRestaurantList restaurants;
+    private final UniqueList<E> data;
 
     /*
      * The 'unusual' code block below is an non-static initialization block, sometimes used to avoid duplication
@@ -24,7 +23,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      *   among constructors.
      */
     {
-        restaurants = new UniqueRestaurantList();
+        data = new UniqueList<E>();
     }
 
     public AddressBook() {}
@@ -40,11 +39,11 @@ public class AddressBook implements ReadOnlyAddressBook {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the restaurant list with {@code restaurants}.
-     * {@code restaurants} must not contain duplicate restaurants.
+     * Replaces the contents of the restaurant list with {@code data}.
+     * {@code data} must not contain duplicate data.
      */
-    public void setRestaurants(List<Restaurant> restaurants) {
-        this.restaurants.setRestaurants(restaurants);
+    public void setObjects(List<E> data) {
+        this.data.setObjects(data);
     }
 
     /**
@@ -53,7 +52,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setRestaurants(newData.getRestaurantList());
+        setObjects(newData.getDataList());
     }
 
     //// restaurant-level operations
@@ -61,17 +60,17 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Returns true if a restaurant with the same identity as {@code restaurant} exists in the address book.
      */
-    public boolean hasRestaurant(Restaurant restaurant) {
-        requireNonNull(restaurant);
-        return restaurants.contains(restaurant);
+    public boolean hasObject(E object) {
+        requireNonNull(object);
+        return data.contains(object);
     }
 
     /**
      * Adds a restaurant to the address book.
      * The restaurant must not already exist in the address book.
      */
-    public void addRestaurant(Restaurant p) {
-        restaurants.add(p);
+    public void addRestaurant(E p) {
+        data.add(p);
     }
 
     /**
@@ -80,42 +79,42 @@ public class AddressBook implements ReadOnlyAddressBook {
      * The restaurant identity of {@code editedRestaurant} must not be the
      * same as another existing restaurant in the address book.
      */
-    public void updateRestaurant(Restaurant target, Restaurant editedRestaurant) {
+    public void updateRestaurant(E target, E editedRestaurant) {
         requireNonNull(editedRestaurant);
 
-        restaurants.setRestaurant(target, editedRestaurant);
+        data.setObject(target, editedRestaurant);
     }
 
     /**
      * Removes {@code key} from this {@code AddressBook}.
      * {@code key} must exist in the address book.
      */
-    public void removeRestaurant(Restaurant key) {
-        restaurants.remove(key);
+    public void removeRestaurant(E key) {
+        data.remove(key);
     }
 
     //// util methods
 
     @Override
     public String toString() {
-        return restaurants.asUnmodifiableObservableList().size() + " restaurants";
+        return data.asUnmodifiableObservableList().size() + " data";
         // TODO: refine later
     }
 
     @Override
-    public ObservableList<Restaurant> getRestaurantList() {
-        return restaurants.asUnmodifiableObservableList();
+    public ObservableList<E> getDataList() {
+        return data.asUnmodifiableObservableList();
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof AddressBook // instanceof handles nulls
-                && restaurants.equals(((AddressBook) other).restaurants));
+                && data.equals(((AddressBook) other).data));
     }
 
     @Override
     public int hashCode() {
-        return restaurants.hashCode();
+        return data.hashCode();
     }
 }

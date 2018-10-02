@@ -13,6 +13,7 @@ public class UserPrefs {
 
     private GuiSettings guiSettings;
     private Path addressBookFilePath = Paths.get("data" , "addressbook.xml");
+    private Path jioBookFilePath = Paths.get("data" , "jiobook.xml");
 
     public UserPrefs() {
         setGuiSettings(500, 500, 0, 0);
@@ -33,6 +34,15 @@ public class UserPrefs {
     public Path getAddressBookFilePath() {
         return addressBookFilePath;
     }
+
+    public Path getJioBookFilePath() {
+        return jioBookFilePath;
+    }
+    
+    public void setJioBookFilePath(Path jioBookFilePath) {
+        this.jioBookFilePath = jioBookFilePath;
+    }
+
 
     public void setAddressBookFilePath(Path addressBookFilePath) {
         this.addressBookFilePath = addressBookFilePath;

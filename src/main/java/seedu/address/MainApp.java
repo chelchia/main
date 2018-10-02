@@ -50,6 +50,7 @@ public class MainApp extends Application {
     protected Model model;
     protected Config config;
     protected UserPrefs userPrefs;
+    protected Storage jioStorage;
 
 
     @Override
@@ -64,10 +65,14 @@ public class MainApp extends Application {
         userPrefs = initPrefs(userPrefsStorage);
         AddressBookStorage addressBookStorage = new XmlAddressBookStorage(userPrefs.getAddressBookFilePath());
         storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        
+        //MYCHANGE
+        AddressBookStorage jioBookStorage = new XmlAddressBookStorage(userPrefs.getJioBookFilePath());
+        jioStorage = new StorageManager(jioBookStorage, userPrefsStorage);
 
         initLogging(config);
 
-        model = initModelManager(storage, userPrefs);
+        model = initModelManager(storage, jioStorage, userPrefs);
 
         logic = new LogicManager(model);
 
@@ -81,7 +86,7 @@ public class MainApp extends Application {
      * The data from the sample address book will be used instead if {@code storage}'s address book is not found,
      * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
      */
-    private Model initModelManager(Storage storage, UserPrefs userPrefs) {
+    private Model initModelManager(Storage storage, Storage jioStorage, UserPrefs userPrefs) {
         Optional<ReadOnlyAddressBook> addressBookOptional;
         ReadOnlyAddressBook initialData;
         try {
@@ -97,8 +102,26 @@ public class MainApp extends Application {
             logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
             initialData = new AddressBook();
         }
+        
+        
+        //MYCHANGE
+        Optional<ReadOnlyAddressBook> jioBookOptional;
+        ReadOnlyAddressBook initialJioData;
+        try {
+            jioBookOptional = jioStorage.readAddressBook();
+            if (!jioBookOptional.isPresent()) {
+                logger.info("Data file not found. Will be starting with a sample AddressBook");
+            }
+            initialJioData = jioBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
+            initialJioData = new AddressBook();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
+            initialJioData = new AddressBook();
+        }
 
-        return new ModelManager(initialData, userPrefs);
+        return new ModelManager(initialData, initialJioData, userPrefs);
     }
 
     private void initLogging(Config config) {

@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.model.jio.Jio;
 import seedu.address.model.restaurant.Restaurant;
 
 /**
@@ -22,22 +23,27 @@ public class ModelManager extends ComponentManager implements Model {
 
     private final VersionedAddressBook versionedAddressBook;
     private final FilteredList<Restaurant> filteredRestaurants;
+    private final VersionedAddressBook versionedJioBook;
+    private final FilteredList<Jio> filteredJio;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, UserPrefs userPrefs) {
+    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyAddressBook jioBook, UserPrefs userPrefs) {
         super();
-        requireAllNonNull(addressBook, userPrefs);
+        requireAllNonNull(addressBook, jioBook, userPrefs);
 
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
-        filteredRestaurants = new FilteredList<>(versionedAddressBook.getRestaurantList());
+        filteredRestaurants = new FilteredList<>(versionedAddressBook.getDataList());
+
+        versionedJioBook = new VersionedAddressBook(addressBook);
+        filteredJio = new FilteredList<>(versionedJioBook.getDataList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new AddressBook(), new AddressBook(), new UserPrefs());
     }
 
     @Override
@@ -59,7 +65,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public boolean hasRestaurant(Restaurant restaurant) {
         requireNonNull(restaurant);
-        return versionedAddressBook.hasRestaurant(restaurant);
+        return versionedAddressBook.hasObject(restaurant);
     }
 
     @Override
@@ -82,6 +88,19 @@ public class ModelManager extends ComponentManager implements Model {
         versionedAddressBook.updateRestaurant(target, editedRestaurant);
         indicateAddressBookChanged();
     }
+
+    //MYCHANGE
+    public boolean hasJio(Jio jio) {
+        requireNonNull(jio);
+        return versionedJioBook.hasObject(jio);
+    }
+    public void addRestaurant(Jio jio) {
+        versionedJioBook.addRestaurant(jio);
+        updateFilteredRestaurantList(PREDICATE_SHOW_ALL_PERSONS);
+        indicateAddressBookChanged();
+    }
+
+
 
     //=========== Filtered Restaurant List Accessors =============================================================
 

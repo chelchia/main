@@ -119,10 +119,10 @@ public class RestaurantListPanelTest extends GuiUnitTest {
      * Also shows the {@code Stage} that displays only {@code RestaurantListPanel}.
      */
     private void initUi(ObservableList<Restaurant> backingList) {
-        RestaurantListPanel restaurantListPanel = new RestaurantListPanel(backingList);
+        ListPanel restaurantListPanel = new ListPanel(backingList);
         uiPartRule.setUiPart(restaurantListPanel);
 
-        restaurantListPanelHandle = new RestaurantListPanelHandle(getChildNode(restaurantListPanel.getRoot(),
+        restaurantListPanelHandle = new RestaurantListPanelHandle(getChildNode((javafx.scene.Node)restaurantListPanel.getRoot(),
                 RestaurantListPanelHandle.RESTAURANT_LIST_VIEW_ID));
     }
 }

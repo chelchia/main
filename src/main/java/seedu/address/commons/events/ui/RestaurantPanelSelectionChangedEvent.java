@@ -6,12 +6,12 @@ import seedu.address.model.restaurant.Restaurant;
 /**
  * Represents a selection change in the Restaurant List Panel
  */
-public class RestaurantPanelSelectionChangedEvent extends BaseEvent {
+public class RestaurantPanelSelectionChangedEvent<T> extends BaseEvent {
 
 
-    private final Restaurant newSelection;
+    private final T newSelection;
 
-    public RestaurantPanelSelectionChangedEvent(Restaurant newSelection) {
+    public RestaurantPanelSelectionChangedEvent(T newSelection) {
         this.newSelection = newSelection;
     }
 
@@ -20,7 +20,7 @@ public class RestaurantPanelSelectionChangedEvent extends BaseEvent {
         return getClass().getSimpleName();
     }
 
-    public Restaurant getNewSelection() {
+    public T getNewSelection() {
         return newSelection;
     }
 }

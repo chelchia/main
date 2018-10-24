@@ -67,6 +67,6 @@ public class BrowserPanel extends UiPart<Region> {
     @Subscribe
     private void handleRestaurantPanelSelectionChangedEvent(RestaurantPanelSelectionChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        loadRestaurantPage(event.getNewSelection());
+        loadRestaurantPage((Restaurant) event.getNewSelection());
     }
 }

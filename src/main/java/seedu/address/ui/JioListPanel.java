@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class JioListPanel extends UiPart<Region> {
     private static final String FXML = "RestaurantListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(RestaurantListPanel.class);
+    private final Logger logger = LogsCenter.getLogger(ListPanel.class);
 
     @javafx.fxml.FXML
     private ListView<Jio> jioListView;

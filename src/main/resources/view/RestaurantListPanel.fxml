@@ -5,5 +5,4 @@
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <ListView fx:id="restaurantListView" VBox.vgrow="ALWAYS" />
-  <ListView fx:id="jioListView" VBox.vgrow="ALWAYS" />
 </VBox>

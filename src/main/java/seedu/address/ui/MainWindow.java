@@ -34,8 +34,8 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private BrowserPanel browserPanel;
-    private RestaurantListPanel restaurantListPanel;
-    private JioListPanel jioListPanel;
+    private ListPanel listPanel;
+    //private JioListPanel jioListPanel;
     private Config config;
     private UserPrefs prefs;
     private HelpWindow helpWindow;
@@ -122,8 +122,8 @@ public class MainWindow extends UiPart<Stage> {
         browserPanel = new BrowserPanel();
         browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
-        restaurantListPanel = new RestaurantListPanel(logic.getFilteredRestaurantList());
-        restaurantListPanelPlaceholder.getChildren().add(restaurantListPanel.getRoot());
+        listPanel = new ListPanel(logic.getFilteredRestaurantList());
+        restaurantListPanelPlaceholder.getChildren().add((javafx.scene.Node)listPanel.getRoot());
 
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -187,8 +187,8 @@ public class MainWindow extends UiPart<Stage> {
         raise(new ExitAppRequestEvent());
     }
 
-    public RestaurantListPanel getRestaurantListPanel() {
-        return restaurantListPanel;
+    public ListPanel getListPanel() {
+        return listPanel;
     }
 
     void releaseResources() {
@@ -206,8 +206,8 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleFeature() {
-        jioListPanel = new JioListPanel(logic.getJioList());
-        restaurantListPanelPlaceholder.getChildren().add(jioListPanel.getRoot());
+        listPanel = new ListPanel(logic.getJioList());
+        restaurantListPanelPlaceholder.getChildren().add((javafx.scene.Node)listPanel.getRoot());
     }
 
 }
